@@ -284,9 +284,10 @@ class PypeLogger:
         )
 
         logger_file_root = os.path.join(
-            os.path.expanduser("~"),
-            ".pype-setup"
-        )
+            os.getenv("YOWZA_PIPE_PATH"),
+            "users",
+            os.getenv("USER"),
+            "logs")
 
         logger_file_path = os.path.join(
             logger_file_root,
