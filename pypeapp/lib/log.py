@@ -290,6 +290,9 @@ class PypeLogger:
             getpass.getuser(),
             "logs")
 
+        if not os.path.exists(logger_file_root):
+            os.makedirs(logger_file_root)
+
         logger_file_path = os.path.join(
             logger_file_root,
             "{}-{}.{}".format(host, log_name, 'log')
