@@ -21,7 +21,6 @@ import platform
 import getpass
 import socket
 import traceback
-import getpass
 
 from logging.handlers import TimedRotatingFileHandler
 
@@ -285,13 +284,9 @@ class PypeLogger:
         )
 
         logger_file_root = os.path.join(
-            os.getenv("YOWZA_PIPE_PATH"),
-            "users",
-            getpass.getuser(),
-            "logs")
-
-        if not os.path.exists(logger_file_root):
-            os.makedirs(logger_file_root)
+            os.path.expanduser("~"),
+            ".pype-setup"
+        )
 
         logger_file_path = os.path.join(
             logger_file_root,
