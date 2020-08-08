@@ -627,7 +627,7 @@ class PypeLauncher(object):
         # description = app_toml.get('description', None)
         # preactions = app_toml.get('preactions', [])
 
-        launchers_path = os.path.join(os.environ["YOWZA_PIPE_PATH"], "launchers")
+        launchers_path = os.path.join(os.environ["PYPE_CONFIG"], "launchers")
 
         database = pypelib.get_avalon_database()
 
