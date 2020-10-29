@@ -21,7 +21,6 @@ import platform
 import getpass
 import socket
 import traceback
-import getpass
 
 from logging.handlers import TimedRotatingFileHandler
 
@@ -33,6 +32,14 @@ from .mongo import (
     get_default_components
 )
 
+# By default is mongo loggind enabled
+_mongo_logging = True
+mongo_log_enable = os.environ.get("PYPE_LOG_MONGO_ENABLED")
+if mongo_log_enable is not None:
+    mongo_log_enable = mongo_log_enable.lower()
+    if mongo_log_enable in ("false", "0", "no"):
+        _mongo_logging = False
+
 try:
     import log4mongo
     from log4mongo.handlers import MongoHandler
@@ -40,8 +47,6 @@ try:
     MONGO_PROCESS_ID = ObjectId()
 except ImportError:
     _mongo_logging = False
-else:
-    _mongo_logging = True
 
 try:
     unicode
@@ -285,13 +290,9 @@ class PypeLogger:
         )
 
         logger_file_root = os.path.join(
-            os.getenv("YOWZA_PIPE_PATH"),
-            "users",
-            getpass.getuser(),
-            "logs")
-
-        if not os.path.exists(logger_file_root):
-            os.makedirs(logger_file_root)
+            os.path.expanduser("~"),
+            ".pype-setup"
+        )
 
         logger_file_path = os.path.join(
             logger_file_root,

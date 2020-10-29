@@ -4,12 +4,7 @@
   "repositories": [{
       "name": "avalon-core",
       "url": "https://github.com/pypeclub/avalon-core.git",
-      "tag": "2.11.5-pype"
-    },
-    {
-      "name": "avalon-launcher",
-      "url": "https://github.com/pypeclub/avalon-launcher.git",
-      "branch": "master"
+      "tag": "2.12.4-pype"
     },
     {
       "name": "pyblish-base",
@@ -22,19 +17,14 @@
       "branch": "master"
     },
     {
-      "name": "openHarmony",
-      "url": "https://github.com/cfourney/OpenHarmony.git",
-      "tag": "0.3.0"
-    },
-    {
       "name": "pype",
       "url": "https://github.com/pypeclub/pype.git",
-      "tag": "2.11.5"
+      "tag": "2.12.4"
     },
     {
       "name": "pype-config",
       "url": "https://github.com/pypeclub/pype-config.git",
-      "tag": "2.11.1"
+      "tag": "2.12.3"
     }
   ],
   "pip": [],
@@ -44,6 +34,11 @@
 	  "google_id": "1YmKxmJcJ9Bp_mPuHtLtCI-GsezxWUTdJ",
 	  "archive_type": "zip",
 	  "skip_first_subfolder": true
-	}
+    }, {
+	  "extract_path": "vendor/bin/oiiotool",
+	  "google_id": "1U1kMJO_mcqPBxfi2CMYgKBfnzal7Pj-h",
+	  "archive_type": "zip",
+	  "skip_first_subfolder": true
+    }
   ]
 }
